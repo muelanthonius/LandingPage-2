@@ -283,16 +283,4 @@ body {
     font-size: 24px;
   }
 }
-/* Tablet */
-@media (max-width: 1024px) {
-  .link-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
 
-/* Mobile */
-@media (max-width: 640px) {
-  .link-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
