@@ -198,6 +198,11 @@ body {
   margin-bottom: 8px;
 }
 
+.icon img {
+  width: 40px;   /* bisa kamu ubah */
+  height: 30px;
+  object-fit: contain;
+}
 .label {
   display: block;
   font-size: 14px;
