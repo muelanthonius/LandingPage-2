@@ -192,6 +192,10 @@ body {
   box-shadow: 0 12px 20px var(--soft-shadow);
 }
 
+.link-card:active {
+  transform: scale(0.97);
+}
+
 .icon {
   display: block;
   font-size: 28px;
