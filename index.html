@@ -33,6 +33,7 @@
           id="primary-nav"
           aria-label="Navigasi bagian"
         >
+          <input type="text" id="searchInput" class="section-search" placeholder="Search..."/>
           <a class="section-link" href="#most-viewed">Most Viewed</a>
           <a class="section-link" href="#new">New</a>
           <a class="section-link" href="#aplikasi-internal">Aplikasi Internal</a>
@@ -55,6 +56,11 @@
       </section>
 
       <section class="content">
+        <div class="category" id="search-result" style="display:none;">
+          <h2>Search Result</h2>
+            <div class="link-grid" id="search-grid"></div>
+        </div>
+
         <div class="category" id="most-viewed">
           <h2>Most Viewed 🔥🔥🔥</h2>
           <div class="link-grid">

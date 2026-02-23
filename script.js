@@ -45,6 +45,76 @@ document.addEventListener("DOMContentLoaded", function () {
   const navLinks = document.querySelectorAll(".section-link");
   const mostViewedContainer = document.querySelector("#most-viewed .link-grid");
 
+// =========================
+// SEARCH FEATURE (FIXED)
+// =========================
+
+const searchInput = document.getElementById("searchInput");
+const searchResult = document.getElementById("search-result");
+const searchGrid = document.getElementById("search-grid");
+const allCategories = document.querySelectorAll(".category");
+
+if (searchInput) {
+  searchInput.addEventListener("input", function () {
+    const keyword = this.value.toLowerCase().trim();
+
+    if (keyword === "") {
+      searchResult.style.display = "none";
+      searchGrid.innerHTML = "";
+
+      allCategories.forEach(cat => {
+        if (cat.id !== "search-result") {
+          cat.style.display = "block";
+        }
+      });
+      return;
+    }
+
+    // Sembunyikan semua kategori
+    allCategories.forEach(cat => {
+      cat.style.display = "none";
+    });
+
+    searchResult.style.display = "block";
+    searchGrid.innerHTML = "";
+
+    const allCards = document.querySelectorAll(".link-card");
+
+    allCards.forEach(function (card) {
+      if (card.classList.contains("disabled")) return;
+
+      const labelElement = card.querySelector(".label");
+      const labelOriginal = labelElement?.innerText; // untuk ditampilkan
+      const labelSearch = labelOriginal?.toLowerCase(); // untuk pencarian
+      const id = card.getAttribute("data-id")?.toLowerCase();
+      const link = card.getAttribute("data-link");
+      const iconHTML = card.querySelector(".icon")?.innerHTML;
+
+      if (!labelSearch || !link) return;
+
+      if (labelSearch.includes(keyword) || id.includes(keyword)) {
+
+        const div = document.createElement("div");
+        div.className = "link-card";
+        div.innerHTML = `
+          <span class="icon">${iconHTML}</span>
+          <span class="label">${labelOriginal}</span>
+        `;
+
+        div.addEventListener("click", function () {
+          const newWindow = window.open(link, "_blank", "noopener");
+          if (newWindow) newWindow.opener = null;
+        });
+
+        searchGrid.appendChild(div);
+      }
+    });
+  });
+}
+
+function normalize(text) {
+  return text.toLowerCase();
+}
   // =========================
   // HIT STORAGE
   // =========================
@@ -162,3 +232,4 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
