@@ -259,9 +259,9 @@ body {
     padding: 14px 16px;
   }
 
- .header-container {
-    flex-direction: column;
-    align-items: stretch;
+  .header-container {
+    display: flex;
+    justify-content: space-between;
   }
 .search-wrapper {
   width: 100%;
