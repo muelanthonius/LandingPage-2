@@ -85,6 +85,7 @@ body {
 }
 
 .nav-toggle {
+  
   display: none;
   background: var(--white);
   border: 1px solid rgba(11, 110, 73, 0.18);
@@ -104,7 +105,7 @@ body {
 }
 .search-wrapper {
   flex: 1;
-  justify-content: center;
+  justify-content: right;
   display: flex;
 }
 .section-search {
@@ -282,6 +283,7 @@ body {
   .nav-toggle {
     order:3;
     margin-left: auto; /* dorong ke kanan */
+    
     display: inline-flex;
  
   }
